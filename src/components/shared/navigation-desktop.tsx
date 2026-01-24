@@ -3,7 +3,7 @@ import { links } from '../../data/navigation';
 
 export function NavigationDesktop() {
 	return (
-		<nav className="hidden md:block bg-red-500">
+		<nav className="hidden bg-red-500 md:block">
 			<div className="flex gap-2">
 				{links.map((link) => {
 					return (

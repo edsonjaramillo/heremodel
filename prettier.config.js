@@ -1,6 +1,10 @@
 /** @type {import('prettier').Config} */
 const config = {
-	plugins: ['prettier-plugin-packagejson', '@ianvs/prettier-plugin-sort-imports'],
+	plugins: [
+		'@ianvs/prettier-plugin-sort-imports',
+		'prettier-plugin-packagejson',
+		'prettier-plugin-tailwindcss',
+	],
 	trailingComma: 'es5',
 	printWidth: 100,
 	semi: true,
@@ -15,6 +19,7 @@ const config = {
 		'^(?!.*[.]css$)[./].*$',
 		'.css$',
 	],
+	tailwindStylesheet: './src/styles.css',
 };
 
 export default config;

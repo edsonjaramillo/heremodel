@@ -3,7 +3,7 @@ interface FooterIconProps {
 }
 
 function FooterIcon({ children }: FooterIconProps) {
-	return <div className="size-5 fill-neutral-base">{children}</div>;
+	return <div className="size-5 fill-neutral-600">{children}</div>;
 }
 
 function FacebookIcon() {
@@ -26,7 +26,7 @@ function FacebookIcon() {
 export function Footer() {
 	const copyrightText = `©${new Date().getFullYear()} My Company. All rights reserved.`;
 	return (
-		<footer className="bg-neutral-200 flex flex-col p-4">
+		<footer className="flex flex-col bg-neutral-200 p-4">
 			<div className="flex flex-col border border-blue-500"></div>
 			<div className="flex flex-col">
 				<small>{copyrightText}</small>

@@ -3,7 +3,7 @@ import { links } from '../../data/navigation';
 
 export function NavigationMobile() {
 	return (
-		<nav className="block md:hidden bg-blue-500">
+		<nav className="block bg-blue-500 md:hidden">
 			<div className="flex gap-2">
 				{links.map((link) => {
 					return (
