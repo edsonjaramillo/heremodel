@@ -1,0 +1,6 @@
+# lockfiles
+package-lock.json
+pnpm-lock.yaml
+
+# tanstack start
+routeTree.gen.ts
