@@ -2,6 +2,8 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { Footer } from '../components/shared/footer';
+import { NavigationDesktop } from '../components/shared/navigation-desktop';
+import { NavigationMobile } from '../components/shared/navigation-mobile';
 import appCss from '../styles.css?url';
 
 export const Route = createRootRoute({
@@ -23,6 +25,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
+				<NavigationMobile />
+				<NavigationDesktop />
 				{children}
 				<TanStackDevtools
 					config={{ position: 'bottom-right' }}
