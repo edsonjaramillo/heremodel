@@ -1,7 +1,7 @@
-interface ResponsiveProps {
-	children: React.ReactNode;
-}
+import { cn } from '../../lib/cn';
 
-export function Responsive({ children }: ResponsiveProps) {
-	return <div className="mx-auto w-responsive">{children}</div>;
+type ResponsiveProps = React.ComponentProps<'div'>;
+
+export function Responsive({ children, className }: ResponsiveProps) {
+	return <div className={cn('mx-auto w-responsive', className)}>{children}</div>;
 }
