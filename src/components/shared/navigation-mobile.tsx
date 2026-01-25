@@ -1,20 +1,11 @@
-import { Link } from '@tanstack/react-router';
-import { links } from '../../data/navigation';
 import { Responsive } from '../ui/responsive';
+import { Logo } from './logo';
 
 export function NavigationMobile() {
 	return (
-		<nav className="bg-blue-500 block md:hidden">
-			<Responsive>
-				<div className="flex gap-2">
-					{links.map((link) => {
-						return (
-							<Link key={link.href} to={link.href}>
-								{link.name}
-							</Link>
-						);
-					})}
-				</div>
+		<nav className="block h-navigation px-4 md:hidden">
+			<Responsive className="flex h-full items-center justify-between">
+				<Logo />
 			</Responsive>
 		</nav>
 	);
