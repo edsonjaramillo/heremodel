@@ -8,6 +8,7 @@ export default antfu({
 	stylistic: { indent: 'tab', semi: true },
 	rules: {
 		'jsonc/sort-keys': ['off'],
+		'react-refresh/only-export-components': ['off'],
 		'style/arrow-parens': ['off'],
 		'style/comma-dangle': ['off'],
 		'style/quote-props': ['off'],
