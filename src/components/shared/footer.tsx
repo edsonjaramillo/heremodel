@@ -1,9 +1,11 @@
+import { Responsive } from '../ui/responsive';
+
 interface FooterIconProps {
 	children: React.ReactNode;
 }
 
 function FooterIcon({ children }: FooterIconProps) {
-	return <div className="size-5 fill-neutral-600">{children}</div>;
+	return <div className="fill-neutral-600 size-5">{children}</div>;
 }
 
 function FacebookIcon() {
@@ -26,13 +28,15 @@ function FacebookIcon() {
 export function Footer() {
 	const copyrightText = `©${new Date().getFullYear()} My Company. All rights reserved.`;
 	return (
-		<footer className="flex flex-col bg-neutral-200 p-4">
-			<div className="flex flex-col border border-blue-500"></div>
-			<div className="flex flex-col">
-				<small>{copyrightText}</small>
-				<hr className="text-red-500" />
-				<FacebookIcon />
-			</div>
+		<footer className="bg-neutral-200 flex flex-col p-4">
+			<Responsive>
+				<div className="border-blue-500 flex flex-col border"></div>
+				<div className="flex flex-col">
+					<small>{copyrightText}</small>
+					<hr className="text-red-500" />
+					<FacebookIcon />
+				</div>
+			</Responsive>
 		</footer>
 	);
 }
