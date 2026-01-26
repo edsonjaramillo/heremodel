@@ -4,6 +4,7 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { Footer } from '../components/shared/footer';
 import { NavigationDesktop } from '../components/shared/navigation-desktop';
 import { NavigationMobile } from '../components/shared/navigation-mobile';
+import { NavigationSpacer } from '../components/shared/navigation-spacer';
 import appCss from '../styles.css?url';
 
 export const Route = createRootRoute({
@@ -24,9 +25,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<head>
 				<HeadContent />
 			</head>
-			<body>
+			<body className="relative">
 				<NavigationMobile />
 				<NavigationDesktop />
+				<NavigationSpacer />
 				{children}
 				<TanStackDevtools
 					config={{ position: 'bottom-right' }}
