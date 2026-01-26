@@ -2,9 +2,9 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { Footer } from '../components/shared/footer';
-import { NavigationDesktop } from '../components/shared/navigation-desktop';
-import { NavigationMobile } from '../components/shared/navigation-mobile';
-import { NavigationSpacer } from '../components/shared/navigation-spacer';
+import { NavigationDesktop } from '../components/shared/navigation/navigation-desktop';
+import { NavigationMobile } from '../components/shared/navigation/navigation-mobile';
+import { NavigationSpacer } from '../components/shared/navigation/navigation-spacer';
 import appCss from '../styles.css?url';
 
 export const Route = createRootRoute({

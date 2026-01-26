@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router';
-import { links } from '../../data/navigation';
-import { Logo } from './logo';
+import { links } from '../../../data/navigation';
+import { Logo } from '../logo';
 import { NavigationCallToAction } from './navigation-cta';
 
 export function NavigationDesktop() {
