@@ -1,15 +1,16 @@
 /** @type {import('prettier').Config} */
 const config = {
+	printWidth: 100,
+	useTabs: true,
+	semi: true,
+	singleQuote: true,
+	bracketSameLine: true,
+	trailingComma: 'es5',
 	plugins: [
 		'@ianvs/prettier-plugin-sort-imports',
 		'prettier-plugin-packagejson',
 		'prettier-plugin-tailwindcss',
 	],
-	trailingComma: 'es5',
-	printWidth: 100,
-	semi: true,
-	useTabs: true,
-	singleQuote: true,
 	importOrder: [
 		'<TYPES>^(node:)',
 		'<TYPES>',
