@@ -50,8 +50,7 @@ function MobileMenu() {
 					className={cn(
 						linkStyle,
 						'block bg-black px-4 py-2 font-medium transition-colors duration-base last:rounded-b-[0.75rem] hover:bg-gray hover:text-black'
-					)}
-				>
+					)}>
 					{link.name}
 				</Link>
 			))}
@@ -66,8 +65,7 @@ function Hamburger() {
 		<button
 			type="button"
 			onClick={toggle}
-			className="relative flex size-7 cursor-pointer flex-col justify-between"
-		>
+			className="relative flex size-7 cursor-pointer flex-col justify-between">
 			<span className="sr-only">{isOpen ? 'Close Menu' : 'Open Menu'}</span>
 			<div
 				className={cn(

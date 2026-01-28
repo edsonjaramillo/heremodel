@@ -13,8 +13,7 @@ function FooterIcon({ to, children }: FooterIconProps) {
 			href={to}
 			rel="noopener nofollow noreferrer external"
 			target="_blank"
-			className="size-6 fill-muted transition-colors duration-base hover:fill-white"
-		>
+			className="size-6 fill-muted transition-colors duration-base hover:fill-white">
 			{children}
 		</a>
 	);
