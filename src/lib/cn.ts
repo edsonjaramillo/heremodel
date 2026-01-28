@@ -1,7 +1,12 @@
-import type { ClassValue } from 'clsx';
-import { clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { extendTailwindMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]): string {
-	return twMerge(clsx(inputs));
-}
+const spacing = ['navigation', 'responsive'] as const;
+
+export const cn = extendTailwindMerge({
+	cacheSize: 0,
+	extend: {
+		theme: {
+			spacing,
+		},
+	},
+});
