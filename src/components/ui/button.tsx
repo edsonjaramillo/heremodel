@@ -1,5 +1,4 @@
 import type { VariantProps } from 'class-variance-authority';
-import type { JSX } from 'react';
 import { cva } from 'class-variance-authority';
 import { cn } from '../../lib/cn';
 
@@ -41,7 +40,7 @@ export function Button({
 	disabled,
 	width,
 	...props
-}: ButtonProps): JSX.Element {
+}: ButtonProps) {
 	const style = buttonVariants({ color, disabled, width });
 	return (
 		<button className={cn(style, className)} disabled={disabled} type={type} {...props}>
