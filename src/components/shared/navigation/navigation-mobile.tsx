@@ -22,7 +22,7 @@ export function NavigationMobile() {
 
 	const cls = cn(
 		isOpen ? '' : 'h-navigation',
-		'fixed overflow-hidden duration-base transition-all top-6 left-1/2 z-modal mx-auto block w-responsive -translate-x-1/2 transform rounded-nav bg-black md:hidden'
+		'fixed overflow-hidden duration-base transition-all top-0 left-1/2 z-modal mx-auto block w-full -translate-x-1/2 transform bg-white md:hidden shadow-base'
 	);
 
 	return (
@@ -38,8 +38,8 @@ export function NavigationMobile() {
 
 function MobileMenu() {
 	const { isOpen } = useMobileMenu();
-	const menuStyle = cn('h-0 duration-base transition-all py-0 px-2', isOpen && 'py-2');
-	const linkStyle = textVariants({ textColor: 'white' });
+	const menuStyle = cn('h-0 duration-base transition-all py-0 px-4', isOpen && 'py-2');
+	const linkStyle = textVariants({ textColor: 'black' });
 	return (
 		<div className={menuStyle}>
 			<NavigationCallToAction buttonWidth="full" className="mb-2" />
@@ -49,7 +49,7 @@ function MobileMenu() {
 					key={link.href}
 					className={cn(
 						linkStyle,
-						'block bg-black px-4 py-2 font-medium transition-colors duration-base last:rounded-b-[0.75rem] hover:bg-gray hover:text-black'
+						'block bg-white px-4 py-2 font-medium transition-colors duration-base hover:bg-gray hover:text-black'
 					)}>
 					{link.name}
 				</Link>
@@ -69,19 +69,19 @@ function Hamburger() {
 			<span className="sr-only">{isOpen ? 'Close Menu' : 'Open Menu'}</span>
 			<div
 				className={cn(
-					'absolute top-1 h-0.5 w-7 origin-center bg-white transition-all duration-base',
+					'absolute top-1 h-0.5 w-7 origin-center bg-black transition-all duration-base',
 					isOpen ? 'translate-y-[9px] -rotate-45' : 'rotate-0'
 				)}
 			/>
 			<div
 				className={cn(
-					'absolute top-1/2 h-0.5 w-7 -translate-y-1/2 bg-white transition-all duration-base',
+					'absolute top-1/2 h-0.5 w-7 -translate-y-1/2 bg-black transition-all duration-base',
 					isOpen ? 'opacity-0' : 'opacity-100'
 				)}
 			/>
 			<div
 				className={cn(
-					'absolute bottom-1 h-0.5 w-7 origin-center bg-white transition-all duration-base',
+					'absolute bottom-1 h-0.5 w-7 origin-center bg-black transition-all duration-base',
 					isOpen ? '-translate-y-[9px] rotate-45' : 'rotate-0'
 				)}
 			/>

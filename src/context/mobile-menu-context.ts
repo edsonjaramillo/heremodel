@@ -11,7 +11,7 @@ interface Actions {
 }
 
 export const useMobileMenu = create<State & Actions>((set) => ({
-	isOpen: true,
+	isOpen: false,
 	open() {
 		set(() => ({ isOpen: true }));
 	},

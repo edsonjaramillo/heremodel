@@ -6,7 +6,7 @@ type NavigationCallToActionProps = React.ComponentProps<'a'> & {
 };
 
 export function NavigationCallToAction({ buttonWidth, className }: NavigationCallToActionProps) {
-	const buttonStyle = cn(buttonVariants({ width: buttonWidth }), className);
+	const buttonStyle = cn(buttonVariants({ width: buttonWidth, color: 'black' }), className);
 	return (
 		<a href="tel:2561231234" className={buttonStyle}>
 			Call Us
