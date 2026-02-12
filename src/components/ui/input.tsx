@@ -21,7 +21,7 @@ export function Input({
 }: InputProps) {
 	const { register } = useFormContext();
 	const style = cn(
-		'h-9 w-full rounded-base border border-muted bg-transparent px-3 py-2 text-sm text-black shadow-base placeholder:text-gray focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2 focus-visible:outline-0 disabled:cursor-not-allowed disabled:text-muted disabled:placeholder:text-muted',
+		'h-9 w-full border border-muted bg-transparent px-3 py-2 text-sm text-black shadow-base placeholder:text-gray focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2 focus-visible:outline-0 disabled:cursor-not-allowed disabled:text-muted disabled:placeholder:text-muted',
 		className
 	);
 	return (

@@ -10,7 +10,7 @@ interface RequiredButtonProps {
 export type ButtonProps = React.ComponentProps<'button'> & RequiredButtonProps & ButtonVariants;
 
 export const buttonVariants = cva(
-	'flex h-9 cursor-pointer items-center justify-center gap-2 rounded-base px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-base focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2 focus-visible:outline-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+	'flex h-9 cursor-pointer items-center justify-center gap-2 px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-base focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2 focus-visible:outline-none [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
 	{
 		variants: {
 			color: {
@@ -23,6 +23,8 @@ export const buttonVariants = cva(
 					'bg-danger text-white not-disabled:hover:bg-danger-hover not-disabled:focus:bg-danger-hover not-disabled:active:bg-danger-pressed',
 				warning:
 					'bg-warning text-white not-disabled:hover:bg-warning-hover not-disabled:focus:bg-warning-hover not-disabled:active:bg-warning-pressed',
+				black:
+					'bg-black text-white not-disabled:hover:bg-gray-900 not-disabled:focus:bg-gray-900 not-disabled:active:bg-gray-800',
 				none: 'bg-white text-black',
 			},
 			disabled: { true: 'cursor-not-allowed bg-muted text-black' },

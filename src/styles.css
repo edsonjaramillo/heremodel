@@ -148,8 +148,6 @@
 
 	/* Rounded Corners */
 	--radius-*: initial;
-	--radius-base: 0.25rem;
-	--radius-nav: 2rem;
 
 	/* Blur */
 	--blur-*: initial;

@@ -22,7 +22,7 @@ function RouteComponent() {
 	return (
 		<Responsive>
 			<FormProvider {...form}>
-				<Form className="rounded-base p-8 shadow-base">
+				<Form className="p-8 shadow-base">
 					<InputGroup>
 						<Label htmlFor="name">Name</Label>
 						<Input id="name" placeholder="Name" type="text" autoComplete="name" field="name" />
