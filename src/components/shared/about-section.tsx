@@ -11,7 +11,7 @@ export function AboutSection() {
 	return (
 		<Section
 			id="about"
-			className="scroll-mt-28 bg-gray/20"
+			className="scroll-mt-navigation bg-gray/20"
 			title="About Us"
 			description="A focused team building durable, thoughtful exterior spaces with design-first execution.">
 			<div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-[0.9fr_1.6fr] md:items-start md:gap-12">

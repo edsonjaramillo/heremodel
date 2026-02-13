@@ -20,14 +20,12 @@ export function Section({
 		<section className={cn('bg-white py-20 sm:py-24 lg:py-32', className)} {...props}>
 			<div className={cn('mx-auto w-responsive', contentClassName)}>
 				<div className={cn('mx-auto max-w-3xl text-center', headerClassName)}>
-					<h2 className="font-serif text-gray-900 text-4xl tracking-tight sm:text-5xl">{title}</h2>
-					{description
-						? (
-								<p className="text-gray-500 mx-auto mt-4 max-w-2xl text-sm leading-6 sm:text-base">
-									{description}
-								</p>
-							)
-						: null}
+					<h2 className="font-serif text-4xl tracking-tight text-black sm:text-5xl">{title}</h2>
+					{description && (
+						<p className="text-gray-500 mx-auto mt-4 max-w-2xl text-sm leading-6 sm:text-base">
+							{description}
+						</p>
+					)}
 				</div>
 				{children}
 			</div>

@@ -6,5 +6,5 @@ export function NavigationSpacer() {
 		return null;
 	}
 
-	return <div aria-hidden className="m-6 h-navigation" />;
+	return <div aria-hidden className="h-navigation" />;
 }

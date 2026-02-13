@@ -42,7 +42,7 @@ export function H1({ children, className, seperator, size, textColor, ...props }
 			seperator,
 			size: size || '4xl',
 			textColor,
-			className: 'font-extrabold lg:text-5xl',
+			className: 'font-extrabold',
 		}),
 		className
 	);
@@ -111,7 +111,7 @@ export function Paragraph({
 			seperator,
 			size: size || 'base',
 			textColor,
-			className: 'leading-7 not-first:mt-6',
+			className: 'leading-7',
 		}),
 		className
 	);

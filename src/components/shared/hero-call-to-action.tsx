@@ -31,7 +31,7 @@ export function HeroCallToAction({ heroRef }: HeroCallToActionProps) {
 						timelines, and high-quality installation from day one.
 					</p>
 					<div className="mt-10 flex items-center justify-center">
-						<Link to="/contact" className={cn(buttonVariants({ color: 'hero' }))}>
+						<Link to="/quote" className={cn(buttonVariants({ color: 'hero' }))}>
 							Get a Quote
 						</Link>
 					</div>
