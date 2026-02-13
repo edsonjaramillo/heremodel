@@ -5,10 +5,6 @@ export interface NavigationLink {
 
 export const links: NavigationLink[] = [
 	{
-		name: 'Home',
-		href: '/',
-	},
-	{
 		name: 'Services',
 		href: '#services',
 	},

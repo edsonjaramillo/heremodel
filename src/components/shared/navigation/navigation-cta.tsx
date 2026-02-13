@@ -16,7 +16,7 @@ export function NavigationCallToAction({
 		className
 	);
 	return (
-		<a href="tel:2561231234" className={buttonStyle}>
+		<a href="tel:2562936123" className={buttonStyle}>
 			Call Us
 		</a>
 	);

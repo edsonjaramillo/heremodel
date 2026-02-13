@@ -1,3 +1,4 @@
+import { cn } from '../../lib/cn';
 import { Responsive } from '../ui/responsive';
 import { Span } from '../ui/text';
 import { Logo } from './logo';
@@ -29,23 +30,22 @@ function FacebookIcon() {
 	);
 }
 
-interface FooterSectionProps {
+type FooterSectionProps = React.ComponentProps<'div'> & {
 	title: string;
-	children?: React.ReactNode;
-}
+};
 
-function FooterSection({ title, children }: FooterSectionProps) {
+function FooterSection({ title, className, children }: FooterSectionProps) {
 	return (
-		<div className="flex flex-col">
-			<Span textColor="white" size="lg" className="font-bold">
+		<div className={cn('flex flex-col', className)}>
+			<Span textColor="white" size="lg" className="font-bold lg:ml-auto">
 				{title}
 			</Span>
-			<ul className="mt-3 flex flex-col">
-				<Span textColor="muted">Hello</Span>
-				<Span textColor="muted">Hello</Span>
-				<Span textColor="muted">Hello</Span>
-				<Span textColor="muted">Hello</Span>
-				<Span textColor="muted">Hello</Span>
+			<ul className="mt-3 flex flex-col lg:ml-auto">
+				<Span textColor="muted">Placeholder</Span>
+				<Span textColor="muted">Placeholder</Span>
+				<Span textColor="muted">Placeholder</Span>
+				<Span textColor="muted">Placeholder</Span>
+				<Span textColor="muted">Placeholder</Span>
 				{children}
 			</ul>
 		</div>
@@ -57,16 +57,15 @@ export function Footer() {
 	return (
 		<footer className="flex flex-col bg-black py-12">
 			<Responsive>
-				<div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+				<div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
 					<div className="flex flex-col gap-4">
-						<Logo />
+						<Logo className="text-white" />
 						<Span size="sm" textColor="muted" className="max-w-64 text-pretty">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, architecto.
 						</Span>
 					</div>
-					<FooterSection title="About Us" />
-					<FooterSection title="About Us" />
-					<FooterSection title="About Us" />
+					<FooterSection title="Placeholder" className="lg:col-start-3" />
+					<FooterSection title="Placeholder" />
 				</div>
 				<div className="flex flex-col pt-0">
 					<hr className="mt-10 text-muted" />
