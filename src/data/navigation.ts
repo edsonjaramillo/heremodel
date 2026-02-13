@@ -14,7 +14,7 @@ export const links: NavigationLink[] = [
 	},
 	{
 		name: 'About',
-		href: '/about',
+		href: '#about',
 	},
 	{
 		name: 'Contact',

@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useEffect, useRef } from 'react';
+import { AboutSection } from '../components/shared/about-section';
 import { HeroCallToAction } from '../components/shared/hero-call-to-action';
 import { ServicesSection } from '../components/shared/services-section';
 import { useHomepageNav } from '../context/homepage-nav-context';
@@ -37,6 +38,7 @@ function App() {
 		<>
 			<HeroCallToAction heroRef={heroRef} />
 			<ServicesSection />
+			<AboutSection />
 		</>
 	);
 }
