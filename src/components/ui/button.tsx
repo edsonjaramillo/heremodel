@@ -25,6 +25,9 @@ export const buttonVariants = cva(
 					'bg-warning text-white not-disabled:hover:bg-warning-hover not-disabled:focus:bg-warning-hover not-disabled:active:bg-warning-pressed',
 				black:
 					'bg-black text-white not-disabled:hover:bg-gray-900 not-disabled:focus:bg-gray-900 not-disabled:active:bg-gray-800',
+				inverted:
+					'bg-white/15 text-white ring-1 ring-white/75 backdrop-blur-sm not-disabled:hover:bg-white/25 not-disabled:focus:bg-white/25',
+				hero: 'bg-white/15 px-8 py-6 text-base tracking-widest text-white uppercase ring-1 ring-white/80 backdrop-blur-sm not-disabled:hover:bg-white/25 not-disabled:focus:bg-white/25',
 				none: 'bg-white text-black',
 			},
 			disabled: { true: 'cursor-not-allowed bg-muted text-black' },
