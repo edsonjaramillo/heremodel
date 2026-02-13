@@ -65,6 +65,98 @@ export function InputDescription({ className, children, ...props }: InputDescrip
 	);
 }
 
+type RadioGroupProps = React.ComponentProps<'div'>;
+export function RadioGroup({ children, className, ...props }: RadioGroupProps) {
+	return (
+		<div className={cn('grid gap-2 sm:grid-cols-2', className)} role="radiogroup" {...props}>
+			{children}
+		</div>
+	);
+}
+
+interface RadioOptionRequiredProps {
+	field: string;
+	id: string;
+	label: string;
+	value: string;
+}
+type RadioOptionProps = React.ComponentProps<'input'> & RadioOptionRequiredProps;
+export function RadioOption({
+	className,
+	field,
+	id,
+	label,
+	required,
+	value,
+	...props
+}: RadioOptionProps) {
+	const { register } = useFormContext();
+	return (
+		<label
+			htmlFor={id}
+			className={cn(
+				'flex cursor-pointer items-center gap-2 border border-muted px-3 py-2 text-sm text-black shadow-base',
+				className
+			)}>
+			<input
+				className="accent-info"
+				id={id}
+				type="radio"
+				value={value}
+				{...register(field, { required })}
+				{...props}
+			/>
+			{label}
+		</label>
+	);
+}
+
+type CheckboxGroupProps = React.ComponentProps<'div'>;
+export function CheckboxGroup({ children, className, ...props }: CheckboxGroupProps) {
+	return (
+		<div className={cn('grid gap-2', className)} {...props}>
+			{children}
+		</div>
+	);
+}
+
+interface CheckboxOptionRequiredProps {
+	field: string;
+	id: string;
+	label: string;
+	value: string;
+}
+type CheckboxOptionProps = React.ComponentProps<'input'> & CheckboxOptionRequiredProps;
+export function CheckboxOption({
+	className,
+	field,
+	id,
+	label,
+	required,
+	value,
+	...props
+}: CheckboxOptionProps) {
+	const { register } = useFormContext();
+	return (
+		<label
+			htmlFor={id}
+			className={cn(
+				'flex cursor-pointer items-center gap-2 border border-muted px-3 py-2 text-sm text-black shadow-base',
+				className
+			)}>
+			<input
+				className="h-4 w-4 accent-info"
+				id={id}
+				type="checkbox"
+				value={value}
+				{...register(field, { required })}
+				{...props}
+			/>
+			{label}
+		</label>
+	);
+}
+
 interface InputErrorRequiredProps {
 	field: string;
 }

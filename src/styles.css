@@ -136,8 +136,7 @@
 
 	--spacing-responsive: min(90%, var(--responsive-width));
 	--spacing-half-responsive: min(90%, var(--half-responsive-width));
-	--spacing-form: 24rem;
-	--spacing-toast: 21rem;
+	--spacing-form: 30rem;
 	--spacing-split-form: min(90%, 27rem);
 	--spacing-navigation: var(--navigation-height);
 
