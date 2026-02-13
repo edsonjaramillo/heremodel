@@ -29,7 +29,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<NavigationMobile />
 				<NavigationDesktop />
 				<NavigationSpacer />
-				{children}
+				<main>{children}</main>
 				<TanStackDevtools
 					config={{ position: 'bottom-right' }}
 					plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel /> }]}
