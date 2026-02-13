@@ -28,16 +28,32 @@ export function NavigationDesktop() {
 }
 
 function DesktopLinks() {
+	const { pathname } = useLocation();
+
 	return (
 		<div className="flex h-full items-center gap-8">
-			{links.map((link) => (
-				<Link
-					className="text-sm font-medium tracking-[0.14em] uppercase"
-					key={link.href}
-					to={link.href}>
-					{link.name}
-				</Link>
-			))}
+			{links.map((link) => {
+				if (link.href.startsWith('#')) {
+					const anchorHref = pathname === '/' ? link.href : `/${link.href}`;
+					return (
+						<a
+							className="text-sm font-medium tracking-[0.14em] uppercase"
+							key={link.href}
+							href={anchorHref}>
+							{link.name}
+						</a>
+					);
+				}
+
+				return (
+					<Link
+						className="text-sm font-medium tracking-[0.14em] uppercase"
+						key={link.href}
+						to={link.href}>
+						{link.name}
+					</Link>
+				);
+			})}
 		</div>
 	);
 }

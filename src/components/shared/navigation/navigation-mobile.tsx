@@ -56,20 +56,30 @@ function MobileMenu() {
 				className="mb-2"
 				inverted={isHomepageTop && !isOpen}
 			/>
-			{links.map((link) => (
-				<Link
-					to={link.href}
-					key={link.href}
-					className={cn(
-						linkStyle,
-						'block px-4 py-2 font-medium transition-colors duration-base',
-						isOpen
-							? 'bg-white text-black hover:bg-gray hover:text-black'
-							: 'bg-transparent text-white hover:bg-white/15 hover:text-white'
-					)}>
-					{link.name}
-				</Link>
-			))}
+			{links.map((link) => {
+				const classes = cn(
+					linkStyle,
+					'block px-4 py-2 font-medium transition-colors duration-base',
+					isOpen
+						? 'bg-white text-black hover:bg-gray hover:text-black'
+						: 'bg-transparent text-white hover:bg-white/15 hover:text-white'
+				);
+
+				if (link.href.startsWith('#')) {
+					const anchorHref = pathname === '/' ? link.href : `/${link.href}`;
+					return (
+						<a key={link.href} href={anchorHref} className={classes}>
+							{link.name}
+						</a>
+					);
+				}
+
+				return (
+					<Link to={link.href} key={link.href} className={classes}>
+						{link.name}
+					</Link>
+				);
+			})}
 		</div>
 	);
 }
