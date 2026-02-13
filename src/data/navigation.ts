@@ -9,6 +9,10 @@ export const links: NavigationLink[] = [
 		href: '/',
 	},
 	{
+		name: 'Services',
+		href: '#services',
+	},
+	{
 		name: 'About',
 		href: '/about',
 	},
