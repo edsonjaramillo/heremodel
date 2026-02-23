@@ -172,7 +172,7 @@ export function InputError({ className, field, ...props }: InputErrorProps) {
 
 	return (
 		<Span
-			className={cn('line-clamp-1 w-full border font-semibold', className)}
+			className={cn('line-clamp-1 w-full font-semibold', className)}
 			size="sm"
 			textColor="danger"
 			{...props}>
