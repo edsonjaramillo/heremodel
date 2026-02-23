@@ -20,8 +20,8 @@ export function AboutSection() {
 						Who We Are
 					</Span>
 					<Paragraph className="mt-4 text-sm leading-6 text-black" size="sm">
-						A design-led remodeling team focused on residential exteriors, landscaping, and outdoor
-						living environments.
+						A design-led remodeling team focused on residential interiors and exteriors,
+						landscaping, and outdoor living environments.
 					</Paragraph>
 				</div>
 				<div className="space-y-6">
