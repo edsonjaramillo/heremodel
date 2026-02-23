@@ -1,9 +1,15 @@
+import { Link } from '@tanstack/react-router';
 import { cn } from '../../lib/cn';
 import { Responsive } from '../ui/responsive';
 import { Span } from '../ui/text';
 import { Logo } from './logo';
 
 interface FooterIconProps {
+	to: string;
+	children: React.ReactNode;
+}
+
+interface FooterLinkProps {
 	to: string;
 	children: React.ReactNode;
 }
@@ -30,6 +36,14 @@ function FacebookIcon() {
 	);
 }
 
+function FooterLink({ to, children }: FooterLinkProps) {
+	return (
+		<Link className="text-muted transition-colors duration-base hover:text-white" to={to}>
+			{children}
+		</Link>
+	);
+}
+
 type FooterSectionProps = React.ComponentProps<'div'> & {
 	title: string;
 };
@@ -40,14 +54,7 @@ function FooterSection({ title, className, children }: FooterSectionProps) {
 			<Span textColor="white" size="lg" className="font-bold lg:ml-auto">
 				{title}
 			</Span>
-			<ul className="mt-3 flex flex-col lg:ml-auto">
-				<Span textColor="muted">Placeholder</Span>
-				<Span textColor="muted">Placeholder</Span>
-				<Span textColor="muted">Placeholder</Span>
-				<Span textColor="muted">Placeholder</Span>
-				<Span textColor="muted">Placeholder</Span>
-				{children}
-			</ul>
+			<ul className="mt-3 flex flex-col lg:ml-auto">{children}</ul>
 		</div>
 	);
 }
@@ -64,8 +71,17 @@ export function Footer() {
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, architecto.
 						</Span>
 					</div>
-					<FooterSection title="Placeholder" className="lg:col-start-3" />
-					<FooterSection title="Placeholder" />
+					<FooterSection title="Placeholder" className="lg:col-start-3">
+						<Span textColor="muted">Placeholder</Span>
+						<Span textColor="muted">Placeholder</Span>
+						<Span textColor="muted">Placeholder</Span>
+						<Span textColor="muted">Placeholder</Span>
+						<Span textColor="muted">Placeholder</Span>
+					</FooterSection>
+					<FooterSection title="Legal">
+						<FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
+						<FooterLink to="/terms-conditions">Terms & Conditions</FooterLink>
+					</FooterSection>
 				</div>
 				<div className="flex flex-col pt-0">
 					<hr className="mt-10 text-muted" />
