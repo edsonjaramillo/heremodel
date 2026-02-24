@@ -37,10 +37,11 @@ export const Route = createFileRoute('/quote')({
 	component: RouteComponent,
 });
 
+type QuoteFormData = z.infer<typeof quoteFormSchema>;
+
 function RouteComponent() {
-	const form = useForm({
+	const form = useForm<QuoteFormData>({
 		resolver: standardSchemaResolver(quoteFormSchema),
-		defaultValues: { name: '', email: '', phone: '', propertyType: undefined, services: [] },
 	});
 	const onSubmit = form.handleSubmit(async () => {});
 
