@@ -51,10 +51,10 @@ type FooterSectionProps = React.ComponentProps<'div'> & {
 function FooterSection({ title, className, children }: FooterSectionProps) {
 	return (
 		<div className={cn('flex flex-col', className)}>
-			<Span textColor="white" size="lg" className="font-bold lg:ml-auto">
+			<Span textColor="white" size="lg" className="font-bold">
 				{title}
 			</Span>
-			<ul className="mt-3 flex flex-col lg:ml-auto">{children}</ul>
+			<ul className="mt-3 flex flex-col gap-4">{children}</ul>
 		</div>
 	);
 }
@@ -64,19 +64,15 @@ export function Footer() {
 	return (
 		<footer className="flex flex-col bg-black py-12">
 			<Responsive>
-				<div className="grid grid-cols-1 gap-4 lg:grid-cols-4">
+				<div className="grid grid-cols-1 gap-4 lg:grid-cols-6">
 					<div className="flex flex-col gap-4">
 						<Logo className="text-white" />
 						<Span size="sm" textColor="muted" className="max-w-64 text-pretty">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, architecto.
 						</Span>
 					</div>
-					<FooterSection title="Placeholder" className="lg:col-start-3">
-						<Span textColor="muted">Placeholder</Span>
-						<Span textColor="muted">Placeholder</Span>
-						<Span textColor="muted">Placeholder</Span>
-						<Span textColor="muted">Placeholder</Span>
-						<Span textColor="muted">Placeholder</Span>
+					<FooterSection title="Resources" className="lg:col-start-5">
+						<FooterLink to="https://google.com">Leave A Review</FooterLink>
 					</FooterSection>
 					<FooterSection title="Legal">
 						<FooterLink to="/privacy-policy">Privacy Policy</FooterLink>
