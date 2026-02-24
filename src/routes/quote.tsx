@@ -15,13 +15,16 @@ import {
 } from '../components/ui/input';
 import { Responsive } from '../components/ui/responsive';
 import { H1, Label, Paragraph } from '../components/ui/text';
+import { allSubserviceOptions, serviceCatalog } from '../data/services';
 
-const serviceOptions = [
-	'Exterior Remodeling',
-	'Landscaping & Hardscaping',
-	'Custom Design',
-	'Outdoor Living',
-] as const;
+const serviceOptions = allSubserviceOptions;
+
+function toCheckboxId(value: string) {
+	return `service-${value
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/(^-|-$)/g, '')}`;
+}
 
 const quoteFormSchema = z.object({
 	name: z.string().min(2, 'Name must be at least 2 characters long'),
@@ -110,18 +113,27 @@ function RouteComponent() {
 						</InputGroup>
 						<InputGroup>
 							<Label>Services</Label>
-							<CheckboxGroup>
-								{serviceOptions.map((service) => (
-									<CheckboxOption
-										key={service}
-										field="services"
-										className="border-none shadow-none"
-										id={service}
-										label={service}
-										value={service}
-									/>
+							<div className="space-y-5">
+								{serviceCatalog.map((group) => (
+									<div key={group.category} className="space-y-2">
+										<Paragraph className="text-xs font-semibold tracking-[0.18em] uppercase">
+											{group.category}
+										</Paragraph>
+										<CheckboxGroup>
+											{group.subservices.map((service) => (
+												<CheckboxOption
+													key={service}
+													field="services"
+													className="border-none shadow-none"
+													id={toCheckboxId(service)}
+													label={service}
+													value={service}
+												/>
+											))}
+										</CheckboxGroup>
+									</div>
 								))}
-							</CheckboxGroup>
+							</div>
 							<InputError field="services" />
 						</InputGroup>
 						<Button type="submit" disabled={form.formState.isSubmitting} width="full" color="black">
