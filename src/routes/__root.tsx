@@ -1,6 +1,7 @@
 import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
+import { Toaster } from 'sonner';
 import { Footer } from '../components/shared/footer';
 import { NavigationDesktop } from '../components/shared/navigation/navigation-desktop';
 import { NavigationMobile } from '../components/shared/navigation/navigation-mobile';
@@ -33,6 +34,22 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<TanStackDevtools
 					config={{ position: 'bottom-right' }}
 					plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel /> }]}
+				/>
+				<Toaster
+					position="top-right"
+					toastOptions={{
+						style: {
+							background: 'var(--color-white)',
+							borderColor: 'var(--color-muted)',
+							color: 'var(--color-black)',
+						},
+						classNames: {
+							success:
+								'!border-[var(--color-success)] !bg-[var(--color-success-accent)] !text-[var(--success-700)]',
+							error:
+								'!border-[var(--color-danger)] !bg-[var(--color-danger-accent)] !text-[var(--danger-700)]',
+						},
+					}}
 				/>
 				<Footer />
 				<Scripts />

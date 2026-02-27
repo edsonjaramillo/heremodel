@@ -1,7 +1,7 @@
 import { standardSchemaResolver } from '@hookform/resolvers/standard-schema';
 import { createFileRoute } from '@tanstack/react-router';
-import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 import { Button } from '../components/ui/button';
 import { Form } from '../components/ui/form';
@@ -46,27 +46,24 @@ type QuoteFormData = z.infer<typeof quoteFormSchema>;
 const emailJsClient = new EmailJsClient();
 
 function RouteComponent() {
-	const [submitError, setSubmitError] = useState<string | null>(null);
-	const [submitSuccess, setSubmitSuccess] = useState(false);
 	const form = useForm<QuoteFormData>({
 		resolver: standardSchemaResolver(quoteFormSchema),
 	});
-	const onSubmit = form.handleSubmit(async (values) => {
-		setSubmitError(null);
-		setSubmitSuccess(false);
-
-		await emailJsClient
-			.sendQuote(values)
-			.then(() => {
-				form.reset();
-				setSubmitSuccess(true);
-			})
-			.catch(() => {
-				setSubmitError('Unable to send your request right now. Please try again in a moment.');
-			});
-	});
-
-	const envVariables = import.meta.env;
+	const onSubmit = form.handleSubmit(
+		async (values) => {
+			await emailJsClient
+				.sendQuote(values)
+				.then(() => {
+					toast.success('Your quote request was sent successfully. We will contact you soon.');
+				})
+				.catch(() => {
+					toast.error('Error sending quote request:');
+				});
+		},
+		() => {
+			toast.error('Please fix the errors in the form before submitting.');
+		}
+	);
 
 	return (
 		<div
@@ -74,7 +71,6 @@ function RouteComponent() {
 			className="bg-cover bg-center py-16"
 			style={{ backgroundImage: 'url("https://picsum.photos/id/188/1600/1200?grayscale")' }}>
 			<Responsive>
-				<pre>{JSON.stringify(envVariables, null, 2)}</pre>
 				<FormProvider {...form}>
 					<Form className="mx-auto space-y-5 bg-white/95 p-6" onSubmit={onSubmit}>
 						<div>
@@ -160,12 +156,6 @@ function RouteComponent() {
 						<Button type="submit" disabled={form.formState.isSubmitting} width="full" color="black">
 							{form.formState.isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
 						</Button>
-						{submitSuccess && (
-							<Paragraph textColor="success">
-								Your quote request was sent successfully. We will contact you soon.
-							</Paragraph>
-						)}
-						{submitError && <Paragraph textColor="danger">{submitError}</Paragraph>}
 					</Form>
 				</FormProvider>
 			</Responsive>
