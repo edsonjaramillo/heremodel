@@ -75,10 +75,7 @@ export function Footer() {
 			<Responsive>
 				<div className="grid grid-cols-1 gap-4 lg:grid-cols-6">
 					<div className="flex flex-col gap-4">
-						<Logo className="text-white" />
-						<Span size="sm" textColor="muted" className="max-w-64 text-pretty">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, architecto.
-						</Span>
+						<Logo inverted />
 					</div>
 					<FooterSection title="Resources" className="lg:col-start-5">
 						<FooterLink to="https://google.com">Leave A Review</FooterLink>
