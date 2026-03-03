@@ -6,6 +6,8 @@
 		"build": "vite build",
 		"dev": "vite dev --port 3000",
 		"format": "prettier . --write",
+		"lighthouse:desktop": "lighthouse http://localhost:3000 --preset=desktop --only-categories=performance,accessibility,best-practices,seo --output=html --output-path=./lighthouse-desktop.html --chrome-flags='--headless=new'",
+		"lighthouse:mobile": "lighthouse http://localhost:3000 --only-categories=performance,accessibility,best-practices,seo --output=html --output-path=./lighthouse-mobile.html --chrome-flags='--headless=new'",
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"test": "vitest run"
@@ -46,6 +48,7 @@
 		"eslint-plugin-react-hooks": "^7.0.1",
 		"eslint-plugin-react-refresh": "^0.4.26",
 		"jsdom": "^27.0.0",
+		"lighthouse": "^13.0.3",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"typescript": "^5.7.2",
