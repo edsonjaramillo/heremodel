@@ -13,7 +13,7 @@ export const serviceCatalog = [
 		category: 'Exteriors',
 		description:
 			'Weather-ready upgrades and structural improvements for curb appeal and durability.',
-		image: 'https://picsum.photos/id/1043/1200/900',
+		image: '/exterior.jpg',
 		imageAlt: 'Exterior home renovation with updated roof and siding',
 		accentClassName: 'from-warning/25 to-warning/5 border-warning/35 bg-warning/8 text-warning',
 		icon: 'exteriors',
@@ -29,7 +29,7 @@ export const serviceCatalog = [
 	{
 		category: 'New Construction',
 		description: 'Ground-up residential builds from planning through completion.',
-		image: 'https://picsum.photos/id/203/1200/900',
+		image: '/newconstruction.jpg',
 		imageAlt: 'New home construction framing on a prepared site',
 		accentClassName: 'from-success/25 to-success/5 border-success/35 bg-success/8 text-success',
 		icon: 'new-construction',
@@ -38,7 +38,7 @@ export const serviceCatalog = [
 	{
 		category: 'Interiors',
 		description: 'Functional and finish-focused interior renovations designed for everyday living.',
-		image: 'https://picsum.photos/id/222/1200/900',
+		image: '/interior.jpg',
 		imageAlt: 'Interior remodeling with modern kitchen and living area',
 		accentClassName: 'from-info/25 to-info/5 border-info/35 bg-info/8 text-info',
 		icon: 'interiors',

@@ -3,7 +3,7 @@ import { Link } from '@tanstack/react-router';
 import { cn } from '../../lib/cn';
 import { buttonVariants } from '../ui/button';
 
-const heroImage = 'https://picsum.photos/seed/home-cta-1/1920/1080';
+const heroImage = '/hero.jpg';
 
 interface HeroCallToActionProps {
 	heroRef: RefObject<HTMLElement | null>;
