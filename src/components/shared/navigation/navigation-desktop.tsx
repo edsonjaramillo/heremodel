@@ -19,7 +19,7 @@ export function NavigationDesktop() {
 					: 'border-b border-gray/30 bg-white/95 text-black shadow-base backdrop-blur-base'
 			)}>
 			<div className="mx-auto flex h-navigation w-responsive items-center justify-between px-6">
-				<Logo className={cn(isHomepageTop && 'text-white')} />
+				<Logo className={cn(isHomepageTop && 'text-white')} inverted={isHomepageTop} />
 				<DesktopLinks />
 				<NavigationCallToAction inverted={isHomepageTop} className="transition-none" />
 			</div>

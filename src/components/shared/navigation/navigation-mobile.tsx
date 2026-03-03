@@ -33,7 +33,7 @@ export function NavigationMobile() {
 	return (
 		<nav className={cls} style={{ height: MENU_HEIGHT }}>
 			<div className="relative flex h-navigation items-center justify-between px-8">
-				<Logo className={cn(isHomepageTop && 'text-white')} />
+				<Logo className={cn(isHomepageTop && 'text-white')} inverted={isHomepageTop} />
 				<Hamburger light={isHomepageTop} />
 			</div>
 			<MobileMenu />
