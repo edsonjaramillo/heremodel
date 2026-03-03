@@ -16,7 +16,7 @@ const CTA_HEIGHT = 2.25 + 0.5;
 const MOBILE_MENU_PADDING = 1;
 
 export function NavigationMobile() {
-	const { isOpen } = useMobileMenu();
+	const { isOpen, close } = useMobileMenu();
 	const { pathname } = useLocation();
 	const { isPastHero } = useHomepageNav();
 	const isHomepageTop = pathname === '/' && !isPastHero && !isOpen;
@@ -33,7 +33,11 @@ export function NavigationMobile() {
 	return (
 		<nav className={cls} style={{ height: MENU_HEIGHT }}>
 			<div className="relative flex h-navigation items-center justify-between px-8">
-				<Logo className={cn(isHomepageTop && 'text-white')} inverted={isHomepageTop} />
+				<Logo
+					className={cn(isHomepageTop && 'text-white')}
+					inverted={isHomepageTop}
+					onClick={() => close()}
+				/>
 				<Hamburger light={isHomepageTop} />
 			</div>
 			<MobileMenu />
@@ -42,7 +46,7 @@ export function NavigationMobile() {
 }
 
 function MobileMenu() {
-	const { isOpen } = useMobileMenu();
+	const { isOpen, close } = useMobileMenu();
 	const { pathname } = useLocation();
 	const { isPastHero } = useHomepageNav();
 	const isHomepageTop = pathname === '/' && !isPastHero;
@@ -57,25 +61,18 @@ function MobileMenu() {
 				inverted={isHomepageTop && !isOpen}
 			/>
 			{links.map((link) => {
-				const classes = cn(
-					linkStyle,
-					'block px-4 py-2 font-medium transition-colors duration-base',
-					isOpen
-						? 'bg-white text-black hover:bg-gray hover:text-black'
-						: 'bg-transparent text-white hover:bg-white/15 hover:text-white'
-				);
-
-				if (link.href.startsWith('#')) {
-					const anchorHref = pathname === '/' ? link.href : `/${link.href}`;
-					return (
-						<a key={link.href} href={anchorHref} className={classes}>
-							{link.name}
-						</a>
-					);
-				}
-
 				return (
-					<Link to={link.href} key={link.href} className={classes}>
+					<Link
+						to={link.href}
+						key={link.href}
+						className={cn(
+							linkStyle,
+							'block px-4 py-2 font-medium transition-colors duration-base',
+							isOpen
+								? 'bg-white text-black hover:bg-gray hover:text-black'
+								: 'bg-transparent text-white hover:bg-white/15 hover:text-white'
+						)}
+						onClick={() => close()}>
 						{link.name}
 					</Link>
 				);
