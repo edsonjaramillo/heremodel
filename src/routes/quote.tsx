@@ -40,6 +40,16 @@ const quoteFormSchema = z.object({
 
 export const Route = createFileRoute('/quote')({
 	component: RouteComponent,
+	head: () => ({
+		meta: [
+			{ title: 'Request a Quote | Hometown Exterior & Remodel' },
+			{
+				name: 'description',
+				content:
+					'Tell us about your project to get a remodeling quote from Hometown Exterior & Remodel. We will follow up with next steps.',
+			},
+		],
+	}),
 });
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
@@ -67,7 +77,6 @@ function RouteComponent() {
 
 	return (
 		<div
-			aria-hidden="true"
 			className="bg-cover bg-center py-16"
 			style={{ backgroundImage: 'url("https://picsum.photos/id/188/1600/1200?grayscale")' }}>
 			<Responsive>

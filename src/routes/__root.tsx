@@ -14,6 +14,16 @@ export const Route = createRootRoute({
 			{ charSet: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 			{ title: 'Hometown Exterior & Remodel' },
+			{
+				name: 'description',
+				content:
+					'Hometown Exterior & Remodel provides exterior and interior remodeling services with craftsmanship-focused installation across North Alabama.',
+			},
+			{ property: 'og:type', content: 'website' },
+			{ property: 'og:site_name', content: 'Hometown Exterior & Remodel' },
+			{ property: 'og:image', content: '/HERMODELOG.webp' },
+			{ name: 'twitter:card', content: 'summary_large_image' },
+			{ name: 'twitter:image', content: '/HERMODELOG.webp' },
 		],
 		links: [{ rel: 'stylesheet', href: appCss }],
 	}),

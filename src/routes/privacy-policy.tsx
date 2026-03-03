@@ -6,6 +6,16 @@ import { legalConfig, privacyPolicySections } from '../data/legal-content';
 
 export const Route = createFileRoute('/privacy-policy')({
 	component: RouteComponent,
+	head: () => ({
+		meta: [
+			{ title: 'Privacy Policy | Hometown Exterior & Remodel' },
+			{
+				name: 'description',
+				content:
+					'Read how Hometown Exterior & Remodel collects, uses, and protects personal information for website visitors and customers.',
+			},
+		],
+	}),
 });
 
 function RouteComponent() {

@@ -6,6 +6,16 @@ import { legalConfig, termsConditionsSections } from '../data/legal-content';
 
 export const Route = createFileRoute('/terms-conditions')({
 	component: RouteComponent,
+	head: () => ({
+		meta: [
+			{ title: 'Terms & Conditions | Hometown Exterior & Remodel' },
+			{
+				name: 'description',
+				content:
+					'Review the terms that govern use of Hometown Exterior & Remodel website, estimates, services, and project policies.',
+			},
+		],
+	}),
 });
 
 function RouteComponent() {

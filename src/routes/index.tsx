@@ -5,7 +5,19 @@ import { HeroCallToAction } from '../components/shared/hero-call-to-action';
 import { ServicesSection } from '../components/shared/services-section';
 import { useHomepageNav } from '../context/homepage-nav-context';
 
-export const Route = createFileRoute('/')({ component: App });
+export const Route = createFileRoute('/')({
+	component: App,
+	head: () => ({
+		meta: [
+			{ title: 'Home | Hometown Exterior & Remodel' },
+			{
+				name: 'description',
+				content:
+					'Exterior remodeling services in North Alabama with dependable timelines, quality craftsmanship, and personalized project guidance.',
+			},
+		],
+	}),
+});
 
 function App() {
 	const heroRef = useRef<HTMLElement>(null);
