@@ -6,6 +6,7 @@ import { Logo } from './logo';
 
 interface FooterIconProps {
 	to: string;
+	label: string;
 	children: React.ReactNode;
 }
 
@@ -14,13 +15,14 @@ interface FooterLinkProps {
 	children: React.ReactNode;
 }
 
-function FooterIcon({ to, children }: FooterIconProps) {
+function FooterIcon({ to, label, children }: FooterIconProps) {
 	return (
 		<a
 			href={to}
+			aria-label={label}
 			rel="noopener nofollow noreferrer external"
 			target="_blank"
-			className="size-6 fill-muted transition-colors duration-base hover:fill-white">
+			className="focus-visible:rounded-sm size-6 fill-muted transition-colors duration-base hover:fill-white focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none">
 			{children}
 		</a>
 	);
@@ -28,8 +30,13 @@ function FooterIcon({ to, children }: FooterIconProps) {
 
 function FacebookIcon() {
 	return (
-		<FooterIcon to="https://www.facebook.com">
-			<svg xmlns="http://www.w3.org/2000/svg" className="h-full w-full" viewBox="0 0 50 50">
+		<FooterIcon to="https://www.facebook.com" label="Visit us on Facebook">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				className="h-full w-full"
+				viewBox="0 0 50 50"
+				aria-hidden="true"
+				focusable="false">
 				<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37,19h-2c-2.14,0-3,0.5-3,2 v3h5l-1,5h-4v15h-5V29h-4v-5h4v-3c0-4,2-7,6-7c2.9,0,4,1,4,1V19z" />
 			</svg>
 		</FooterIcon>
@@ -38,9 +45,11 @@ function FacebookIcon() {
 
 function FooterLink({ to, children }: FooterLinkProps) {
 	return (
-		<Link className="text-muted transition-colors duration-base hover:text-white" to={to}>
-			{children}
-		</Link>
+		<li>
+			<Link className="text-muted transition-colors duration-base hover:text-white" to={to}>
+				{children}
+			</Link>
+		</li>
 	);
 }
 
