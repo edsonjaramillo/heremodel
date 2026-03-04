@@ -30,7 +30,9 @@ function FooterIcon({ to, label, children }: FooterIconProps) {
 
 function FacebookIcon() {
 	return (
-		<FooterIcon to="https://www.facebook.com" label="Visit us on Facebook">
+		<FooterIcon
+			to="https://www.facebook.com/people/Hometown-Exteriors-and-Remodel/61562479351321/?mibextid=wwXIfr&rdid=RT3ll0WpZix94TMC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DjPNMjFN8%2F%3Fmibextid%3DwwXIfr"
+			label="Visit us on Facebook">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				className="h-full w-full"
