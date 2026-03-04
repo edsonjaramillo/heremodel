@@ -76,98 +76,109 @@ function RouteComponent() {
 	);
 
 	return (
-		<div
-			className="bg-cover bg-center py-16"
-			style={{ backgroundImage: 'url("https://picsum.photos/id/188/1600/1200?grayscale")' }}>
-			<Responsive>
-				<FormProvider {...form}>
-					<Form className="mx-auto space-y-5 bg-white/95 p-6" onSubmit={onSubmit}>
-						<div>
-							<H1 size="3xl" className="text-black">
-								Request a Quote
-							</H1>
-							<Paragraph className="mt-2 text-pretty text-gray">
-								Tell us about your project and our team will follow up with next steps.
-							</Paragraph>
-						</div>
-						<InputGroup>
-							<Label htmlFor="name">Name</Label>
-							<Input id="name" placeholder="Name" type="text" autoComplete="name" field="name" />
-							<InputError field="name" />
-						</InputGroup>
-						<InputGroup>
-							<Label htmlFor="email">Email</Label>
-							<Input
-								id="email"
-								placeholder="name@example.com"
-								type="email"
-								autoComplete="email"
-								field="email"
-							/>
-							<InputError field="email" />
-						</InputGroup>
-						<InputGroup>
-							<Label htmlFor="phone">Phone Number</Label>
-							<Input
-								id="phone"
-								placeholder="(555) 555-5555"
-								type="tel"
-								autoComplete="tel"
-								field="phone"
-							/>
-							<InputError field="phone" />
-						</InputGroup>
-						<InputGroup className="w-56">
-							<Label>Property Type</Label>
-							<RadioGroup>
-								<RadioOption
-									field="propertyType"
-									id="residential"
-									label="Residential"
-									value="residential"
-									className="border-none shadow-none"
-								/>
-								<RadioOption
-									field="propertyType"
-									id="commercial"
-									label="Commercial"
-									value="commercial"
-									className="border-none shadow-none"
-								/>
-							</RadioGroup>
-							<InputError field="propertyType" />
-						</InputGroup>
-						<InputGroup>
-							<Label>Services</Label>
-							<div className="space-y-5">
-								{serviceCatalog.map((group) => (
-									<div key={group.category} className="space-y-2">
-										<Paragraph className="text-xs font-semibold tracking-[0.18em] uppercase">
-											{group.category}
-										</Paragraph>
-										<CheckboxGroup>
-											{group.subservices.map((service) => (
-												<CheckboxOption
-													key={service}
-													field="services"
-													className="border-none shadow-none"
-													id={toCheckboxId(service)}
-													label={service}
-													value={service}
-												/>
-											))}
-										</CheckboxGroup>
-									</div>
-								))}
+		<div className="relative overflow-hidden py-16">
+			<img
+				src="/quote.jpg"
+				alt="mansion in grayscale"
+				aria-hidden="true"
+				className="absolute inset-0 h-full w-full object-cover grayscale-100"
+			/>
+			<div className="absolute inset-0 bg-black/35" />
+			<div className="relative">
+				<Responsive>
+					<FormProvider {...form}>
+						<Form className="mx-auto space-y-5 bg-white/95 p-6" onSubmit={onSubmit}>
+							<div>
+								<H1 size="3xl" className="text-black">
+									Request a Quote
+								</H1>
+								<Paragraph className="mt-2 text-pretty text-gray">
+									Tell us about your project and our team will follow up with next steps.
+								</Paragraph>
 							</div>
-							<InputError field="services" />
-						</InputGroup>
-						<Button type="submit" disabled={form.formState.isSubmitting} width="full" color="black">
-							{form.formState.isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
-						</Button>
-					</Form>
-				</FormProvider>
-			</Responsive>
+							<InputGroup>
+								<Label htmlFor="name">Name</Label>
+								<Input id="name" placeholder="Name" type="text" autoComplete="name" field="name" />
+								<InputError field="name" />
+							</InputGroup>
+							<InputGroup>
+								<Label htmlFor="email">Email</Label>
+								<Input
+									id="email"
+									placeholder="name@example.com"
+									type="email"
+									autoComplete="email"
+									field="email"
+								/>
+								<InputError field="email" />
+							</InputGroup>
+							<InputGroup>
+								<Label htmlFor="phone">Phone Number</Label>
+								<Input
+									id="phone"
+									placeholder="(555) 555-5555"
+									type="tel"
+									autoComplete="tel"
+									field="phone"
+								/>
+								<InputError field="phone" />
+							</InputGroup>
+							<InputGroup className="w-56">
+								<Label>Property Type</Label>
+								<RadioGroup>
+									<RadioOption
+										field="propertyType"
+										id="residential"
+										label="Residential"
+										value="residential"
+										className="border-none shadow-none"
+									/>
+									<RadioOption
+										field="propertyType"
+										id="commercial"
+										label="Commercial"
+										value="commercial"
+										className="border-none shadow-none"
+									/>
+								</RadioGroup>
+								<InputError field="propertyType" />
+							</InputGroup>
+							<InputGroup>
+								<Label>Services</Label>
+								<div className="space-y-5">
+									{serviceCatalog.map((group) => (
+										<div key={group.category} className="space-y-2">
+											<Paragraph className="text-xs font-semibold tracking-[0.18em] uppercase">
+												{group.category}
+											</Paragraph>
+											<CheckboxGroup>
+												{group.subservices.map((service) => (
+													<CheckboxOption
+														key={service}
+														field="services"
+														className="border-none shadow-none"
+														id={toCheckboxId(service)}
+														label={service}
+														value={service}
+													/>
+												))}
+											</CheckboxGroup>
+										</div>
+									))}
+								</div>
+								<InputError field="services" />
+							</InputGroup>
+							<Button
+								type="submit"
+								disabled={form.formState.isSubmitting}
+								width="full"
+								color="black">
+								{form.formState.isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
+							</Button>
+						</Form>
+					</FormProvider>
+				</Responsive>
+			</div>
 		</div>
 	);
 }
