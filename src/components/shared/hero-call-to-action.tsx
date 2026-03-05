@@ -21,7 +21,7 @@ export function HeroCallToAction({ heroRef }: HeroCallToActionProps) {
 			<div className="relative mx-auto flex min-h-svh w-responsive items-center justify-center px-4 py-16">
 				<div className="max-w-3xl text-center">
 					<p className="text-sm tracking-[0.24em] text-white/85 uppercase">
-						Hometown Exterior & Remodel
+						Hometown Exteriors & Remodel
 					</p>
 					<h1 className="mt-4 text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl lg:text-7xl">
 						Upgrade Your Home With Craftsmanship That Lasts
