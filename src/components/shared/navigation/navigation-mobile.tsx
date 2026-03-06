@@ -14,15 +14,17 @@ const CTA_HEIGHT = 2.25 + 0.5;
 
 // 0.5 (p-2) * 2
 const MOBILE_MENU_PADDING = 1;
+const OPEN_HEIGHT = NAV_HEIGHT + MOBILE_MENU_PADDING + CTA_HEIGHT + links.length * LINK_HEIGHT;
+const CLOSED_HEIGHT = `${NAV_HEIGHT}rem`;
 
 export function NavigationMobile() {
-	const { isOpen, close } = useMobileMenu();
+	const isOpen = useMobileMenu((state) => state.isOpen);
+	const close = useMobileMenu((state) => state.close);
 	const { pathname } = useLocation();
-	const { isPastHero } = useHomepageNav();
+	const isPastHero = useHomepageNav((state) => state.isPastHero);
 	const isHomepageTop = pathname === '/' && !isPastHero && !isOpen;
 
-	const OPEN_HEIGHT = NAV_HEIGHT + MOBILE_MENU_PADDING + CTA_HEIGHT + links.length * LINK_HEIGHT;
-	const MENU_HEIGHT = isOpen ? `${OPEN_HEIGHT}rem` : `${NAV_HEIGHT}rem`;
+	const menuHeight = isOpen ? `${OPEN_HEIGHT}rem` : CLOSED_HEIGHT;
 
 	const cls = cn(
 		isOpen ? '' : 'h-navigation',
@@ -31,7 +33,7 @@ export function NavigationMobile() {
 	);
 
 	return (
-		<nav className={cls} style={{ height: MENU_HEIGHT }}>
+		<nav className={cls} style={{ height: menuHeight }}>
 			<div className="relative flex h-navigation items-center justify-between px-8">
 				<Logo
 					className={cn(isHomepageTop && 'text-white')}
@@ -46,9 +48,10 @@ export function NavigationMobile() {
 }
 
 function MobileMenu() {
-	const { isOpen, close } = useMobileMenu();
+	const isOpen = useMobileMenu((state) => state.isOpen);
+	const close = useMobileMenu((state) => state.close);
 	const { pathname } = useLocation();
-	const { isPastHero } = useHomepageNav();
+	const isPastHero = useHomepageNav((state) => state.isPastHero);
 	const isHomepageTop = pathname === '/' && !isPastHero;
 	const menuStyle = cn('h-0 duration-base transition-all py-0 px-4', isOpen && 'py-2');
 	const linkStyle = textVariants({ textColor: isHomepageTop ? 'white' : 'black' });
@@ -86,7 +89,8 @@ interface HamburgerProps {
 }
 
 function Hamburger({ light }: HamburgerProps) {
-	const { toggle, isOpen } = useMobileMenu();
+	const toggle = useMobileMenu((state) => state.toggle);
+	const isOpen = useMobileMenu((state) => state.isOpen);
 	const lineColor = light ? 'bg-white' : 'bg-black';
 
 	return (

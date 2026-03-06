@@ -8,6 +8,21 @@ import { NavigationMobile } from '../components/shared/navigation/navigation-mob
 import { NavigationSpacer } from '../components/shared/navigation/navigation-spacer';
 import appCss from '../styles.css?url';
 
+const isDevelopment = import.meta.env.DEV;
+const toasterOptions = {
+	style: {
+		background: 'var(--color-white)',
+		borderColor: 'var(--color-muted)',
+		color: 'var(--color-black)',
+	},
+	classNames: {
+		success:
+			'!border-[var(--color-success)] !bg-[var(--color-success-accent)] !text-[var(--success-700)]',
+		error:
+			'!border-[var(--color-danger)] !bg-[var(--color-danger-accent)] !text-[var(--danger-700)]',
+	},
+} as const;
+
 export const Route = createRootRoute({
 	head: () => ({
 		meta: [
@@ -39,6 +54,17 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	let devtools: React.ReactNode = null;
+
+	if (isDevelopment) {
+		devtools = (
+			<TanStackDevtools
+				config={{ position: 'bottom-right' }}
+				plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel /> }]}
+			/>
+		);
+	}
+
 	return (
 		<html lang="en" className="smooth-scroll">
 			<head>
@@ -49,26 +75,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<NavigationDesktop />
 				<NavigationSpacer />
 				<main>{children}</main>
-				<TanStackDevtools
-					config={{ position: 'bottom-right' }}
-					plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel /> }]}
-				/>
-				<Toaster
-					position="top-right"
-					toastOptions={{
-						style: {
-							background: 'var(--color-white)',
-							borderColor: 'var(--color-muted)',
-							color: 'var(--color-black)',
-						},
-						classNames: {
-							success:
-								'!border-[var(--color-success)] !bg-[var(--color-success-accent)] !text-[var(--success-700)]',
-							error:
-								'!border-[var(--color-danger)] !bg-[var(--color-danger-accent)] !text-[var(--danger-700)]',
-						},
-					}}
-				/>
+				{devtools}
+				<Toaster position="top-right" toastOptions={toasterOptions} />
 				<Footer />
 				<Scripts />
 			</body>

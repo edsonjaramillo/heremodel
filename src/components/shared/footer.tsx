@@ -4,6 +4,8 @@ import { Responsive } from '../ui/responsive';
 import { Span } from '../ui/text';
 import { Logo } from './logo';
 
+const COPYRIGHT_YEAR = new Date().getFullYear();
+
 interface FooterIconProps {
 	to: string;
 	label: string;
@@ -71,7 +73,7 @@ function FooterSection({ title, className, children }: FooterSectionProps) {
 }
 
 export function Footer() {
-	const copyrightText = `©${new Date().getFullYear()} Hometown Exterior & Remodel, All rights reserved.`;
+	const copyrightText = `©${COPYRIGHT_YEAR} Hometown Exterior & Remodel, All rights reserved.`;
 	return (
 		<footer className="flex flex-col bg-black py-12">
 			<Responsive>

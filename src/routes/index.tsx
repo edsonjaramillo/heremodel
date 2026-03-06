@@ -5,6 +5,8 @@ import { HeroCallToAction } from '../components/shared/hero-call-to-action';
 import { ServicesSection } from '../components/shared/services-section';
 import { useHomepageNav } from '../context/homepage-nav-context';
 
+const HERO_OBSERVER_OPTIONS = { threshold: 0, rootMargin: '-56px 0px 0px 0px' };
+
 export const Route = createFileRoute('/')({
 	component: App,
 	head: () => ({
@@ -21,7 +23,8 @@ export const Route = createFileRoute('/')({
 
 function App() {
 	const heroRef = useRef<HTMLElement>(null);
-	const { setPastHero, reset } = useHomepageNav();
+	const setPastHero = useHomepageNav((state) => state.setPastHero);
+	const reset = useHomepageNav((state) => state.reset);
 
 	useEffect(() => {
 		const heroElement = heroRef.current;
@@ -31,12 +34,9 @@ function App() {
 
 		setPastHero(false);
 
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				setPastHero(!entry.isIntersecting);
-			},
-			{ threshold: 0, rootMargin: '-56px 0px 0px 0px' }
-		);
+		const observer = new IntersectionObserver(([entry]) => {
+			setPastHero(!entry.isIntersecting);
+		}, HERO_OBSERVER_OPTIONS);
 
 		observer.observe(heroElement);
 

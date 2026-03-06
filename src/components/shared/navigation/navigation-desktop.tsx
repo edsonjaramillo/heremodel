@@ -7,7 +7,7 @@ import { NavigationCallToAction } from './navigation-cta';
 
 export function NavigationDesktop() {
 	const { pathname } = useLocation();
-	const { isPastHero } = useHomepageNav();
+	const isPastHero = useHomepageNav((state) => state.isPastHero);
 	const isHomepageTop = pathname === '/' && !isPastHero;
 
 	return (

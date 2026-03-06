@@ -20,6 +20,8 @@ import { allSubserviceOptions, serviceCatalog } from '../data/services';
 import { EmailJsClient } from '../lib/emailjs';
 
 const serviceOptions = allSubserviceOptions;
+const quoteBackgroundImage = '/quote.jpg';
+const emailJsClient = new EmailJsClient();
 
 function toCheckboxId(value: string) {
 	return `service-${value
@@ -53,22 +55,26 @@ export const Route = createFileRoute('/quote')({
 });
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
-const emailJsClient = new EmailJsClient();
 
 function RouteComponent() {
 	const form = useForm<QuoteFormData>({
 		resolver: standardSchemaResolver(quoteFormSchema),
 	});
+	const { isSubmitting } = form.formState;
+
 	const onSubmit = form.handleSubmit(
 		async (values) => {
-			await emailJsClient
-				.sendQuote(values)
-				.then(() => {
-					toast.success('Your quote request was sent successfully. We will contact you soon.');
-				})
-				.catch(() => {
-					toast.error('Error sending quote request:');
-				});
+			const didSend = await emailJsClient.sendQuote(values).then(
+				() => true,
+				() => false
+			);
+
+			if (!didSend) {
+				toast.error('Error sending quote request.');
+				return;
+			}
+
+			toast.success('Your quote request was sent successfully. We will contact you soon.');
 		},
 		() => {
 			toast.error('Please fix the errors in the form before submitting.');
@@ -78,7 +84,7 @@ function RouteComponent() {
 	return (
 		<div className="relative overflow-hidden py-16">
 			<img
-				src="/quote.jpg"
+				src={quoteBackgroundImage}
 				alt="mansion in grayscale"
 				aria-hidden="true"
 				className="absolute inset-0 h-full w-full object-cover grayscale-100"
@@ -168,12 +174,8 @@ function RouteComponent() {
 								</div>
 								<InputError field="services" />
 							</InputGroup>
-							<Button
-								type="submit"
-								disabled={form.formState.isSubmitting}
-								width="full"
-								color="black">
-								{form.formState.isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
+							<Button type="submit" disabled={isSubmitting} width="full" color="black">
+								{isSubmitting ? 'Submitting...' : 'Submit Quote Request'}
 							</Button>
 						</Form>
 					</FormProvider>
