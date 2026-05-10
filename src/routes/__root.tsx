@@ -2,6 +2,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools';
 import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { Toaster } from 'sonner';
+import { GoogleAnalytics } from 'tanstack-router-ga4';
 import { Footer } from '../components/shared/footer';
 import { NavigationDesktop } from '../components/shared/navigation/navigation-desktop';
 import { NavigationMobile } from '../components/shared/navigation/navigation-mobile';
@@ -74,6 +75,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<NavigationMobile />
 				<NavigationDesktop />
 				<NavigationSpacer />
+				{!isDevelopment && <GoogleAnalytics measurementId="AW-18041749058" />}
 				<main>{children}</main>
 				{devtools}
 				<Toaster position="top-right" toastOptions={toasterOptions} />
